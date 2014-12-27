@@ -1,0 +1,15 @@
+logan_message:
+    resource: "@LoganMessageBundle/Resources/config/routing.yml"
+    prefix:   /
+
+logan_climbing_partner:
+    resource: "@LoganClimbingPartnerBundle/Resources/config/routing.yml"
+    prefix:   /
+
+logan_user:
+    resource: "@LoganUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
+#app:
+#    resource: @AppBundle/Controller/
+#    type:     annotation

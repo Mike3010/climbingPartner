@@ -1,0 +1,19 @@
+default:
+    path:     /
+    defaults: { _controller: LoganClimbingPartnerBundle:Default:index }
+
+profile:
+    path: /profile
+    defaults: {_controller: LoganClimbingPartnerBundle:Profile:ownProfile }
+
+editProfile:
+    path: /editProfile
+    defaults: {_controller: LoganClimbingPartnerBundle:Profile:editOwnProfile }
+
+show:
+    path: /show/{userId}
+    defaults: {_controller: LoganClimbingPartnerBundle:Profile:showProfile }
+
+search:
+    path: /search
+    defaults: {_controller: LoganClimbingPartnerBundle:Search:searchProfiles }

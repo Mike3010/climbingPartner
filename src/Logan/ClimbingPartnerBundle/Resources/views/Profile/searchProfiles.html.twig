@@ -1,0 +1,45 @@
+{% extends 'LoganClimbingPartnerBundle:Base:base.html.twig' %}
+
+{% block content %}
+    <div class="container">
+        <!-- Example row of columns -->
+        {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+        <div class="row">
+            <div class="col-md-4">
+                {{ form_row(form.ort) }}
+                {{ form_row(form.plz) }}
+                {{ form_row(form.geschlecht) }}
+                <br />
+                {{ form_row(form.Suchen) }}
+            </div>
+            <div class="col-md-2 visible-lg visible-md"></div>
+            <div class="col-md-4">
+                {{ form(form) }}
+                {{ form_errors(form) }}
+            </div>
+        </div>
+        {{ form_end(form) }}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+                {% for result in results %}
+                    <div>
+                        <h3><a href="{{ path('show', {'userId': result.id}) }}">{{ result.username }}</a></h3>
+                        <p>
+                            {{ result.userdata.ort }}, {{ result.userdata.plz }}, {{ result.userdata.geschlecht }}
+                        </p>
+                        <p>
+                            Grad bis: {{ result.userdata.gradBis }}, Vorstieg: {{ result.userdata.vorstieg }},
+                            Seil vorhanden: {{ result.userdata.seilVorhanden }}
+                        </p>
+                        <hr />
+                    </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

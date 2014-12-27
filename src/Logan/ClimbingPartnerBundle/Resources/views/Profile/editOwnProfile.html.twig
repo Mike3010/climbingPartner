@@ -1,0 +1,27 @@
+{% extends 'LoganClimbingPartnerBundle:Base:base.html.twig' %}
+
+{% block content %}
+    <div class="container">
+        <!-- Example row of columns -->
+        <div class="row">
+            <div class="col-md-4">
+                <h2>Hello {{ user.username }}!</h2>
+                <p>Edit your Profile here!</p>
+                {{ form_start(form) }}
+                    {{ form_errors(form) }}
+                    {{ form_row(form.ort) }}
+                    {{ form_row(form.plz) }}
+                    {{ form_row(form.geschlecht) }}
+                    {{ form_row(form.email) }}
+                    {{ form_row(form.text) }}
+                    {{ form_row(form.gradBis) }}
+                    {{ form_row(form.vorstieg) }}
+                    {{ form_row(form.seilVorhanden) }}
+
+                    <br />
+                    {{ form_widget(form.Speichern) }} {{  form_widget(form.Abbrechen) }}
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

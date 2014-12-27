@@ -1,0 +1,19 @@
+{% extends 'LoganClimbingPartnerBundle:Profile:showProfile.html.twig' %}
+
+{% block content %}
+
+    {{ parent() }}
+
+    <div class="container">
+        <!-- Example row of columns -->
+        <div class="row">
+            <div class="col-md-12">
+                <br />
+                <a href="{{ path('editProfile') }}">
+                    <button class="btn btn-success">Edit Profile</button>
+                </a>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

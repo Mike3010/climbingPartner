@@ -1,0 +1,9 @@
+parameters:
+#    logan_user.example.class: Logan\UserBundle\Example
+
+services:
+   user:
+      class: Logan\UserBundle\Entity\User
+
+   userType:
+      class: Logan\UserBundle\Form\Type\UserType

@@ -1,0 +1,13 @@
+login:
+    path: /login
+    defaults: { _controller: LoganUserBundle:Security:login }
+
+login_check:
+    path: /login_check
+
+logout:
+    path: /logout
+
+registration:
+    path: /register
+    defaults: { _controller: LoganUserBundle:Registration:register }

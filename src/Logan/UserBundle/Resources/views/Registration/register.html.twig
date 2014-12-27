@@ -1,0 +1,19 @@
+{% extends 'LoganClimbingPartnerBundle:Base:base_not_logged_in.html.twig' %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+
+                <h2>Registration</h2>
+                <p>To register, please fill out the form below!</p>
+                {{ form(form) }}
+
+                {% if error %}
+                    <div>{{ error }}</div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

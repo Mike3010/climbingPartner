@@ -1,0 +1,16 @@
+#logan_message_homepage:
+messages:
+    path:     /messages
+    defaults: { _controller: LoganMessageBundle:Message:messages }
+
+messagesSent:
+    path:     /messagesSent
+    defaults: { _controller: LoganMessageBundle:Message:messagesSent }
+
+sendMessage:
+    path:     /sendMessage/{userId}
+    defaults: { _controller: LoganMessageBundle:Message:sendMessage }
+
+showMessage:
+    path:     /message/{messageId}
+    defaults: { _controller: LoganMessageBundle:Message:showMessage }

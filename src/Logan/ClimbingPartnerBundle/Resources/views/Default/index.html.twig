@@ -1,0 +1,56 @@
+{% extends 'LoganClimbingPartnerBundle:Base:base.html.twig' %}
+
+{% block content %}
+    <div class="container">
+        <!-- Example row of columns -->
+        <div class="row">
+            <div class="col-md-12">
+                Hello {{ user.username }}!
+                <br/>
+                <br/>
+                <table>
+                    <tr>
+                        <td>Email</td>
+                        <td width="10px"></td>
+                        <td>{{ userdata.email }}</td>
+                    </tr>
+                    <tr>
+                        <td>Grad bis</td>
+                        <td width="10px"></td>
+                        <td>{{ userdata.gradBis }}</td>
+                    </tr>
+                    <tr>
+                        <td>Vorstieg</td>
+                        <td width="10px"></td>
+                        <td>{{ userdata.vorstieg }}</td>
+                    </tr>
+                    <tr>
+                        <td>Seil vorhanden</td>
+                        <td width="10px"></td>
+                        <td>{{ userdata.seilVorhanden }}</td>
+                    </tr>
+                    <tr>
+                        <td>Geschlecht</td>
+                        <td width="10px"></td>
+                        <td>{{ userdata.geschlecht }}</td>
+                    </tr>
+                    <tr>
+                        <td>PLZ</td>
+                        <td width="10px"></td>
+                        <td>{{ userdata.plz }}</td>
+                    </tr>
+                    <tr>
+                        <td>Ort</td>
+                        <td width="10px"></td>
+                        <td>{{ userdata.ort }}</td>
+                    </tr>
+                    <tr>
+                        <td>FormattedUserInfo</td>
+                        <td width="10px"></td>
+                        <td>{{ userdata.FormattedUserInfo }}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}

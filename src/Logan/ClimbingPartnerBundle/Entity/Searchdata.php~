@@ -1,0 +1,25 @@
+<?php
+
+namespace Logan\ClimbingPartnerBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Userdata
+ *
+ * @ORM\Table()
+ * @ORM\Entity
+ */
+class Searchdata
+{
+
+	private $plz;
+
+	private $ort;
+
+	private $gradBis;
+
+	private $seilVorhanden;
+
+	private $vorstieg;
+}

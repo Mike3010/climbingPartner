@@ -1,0 +1,26 @@
+{% extends 'LoganClimbingPartnerBundle:Base:base.html.twig' %}
+
+{% block content %}
+    <div class="container">
+    <!-- Example row of columns -->
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Messages</h2>
+                <h6>
+                    {% if app.request.attributes.get('_route') == 'messages' %}
+                        <a href="{{ path('messagesSent') }}">Messages sent</a>
+                    {% else %}
+                        <a href="{{ path('messages') }}">Messages</a>
+                    {%  endif %}
+                </h6>
+                {% for message in messages %}
+
+                    <h3><a href="{{ path('showMessage', {'messageId': message.id} ) }}">{{ message.subject }}</a></h3>
+                    <h4>{{ message.userFrom.username }} ({{ message.formattedDateSent }})</h4>
+
+                {% endfor %}
+            </div>
+         </div>
+    </div>
+
+{% endblock %}

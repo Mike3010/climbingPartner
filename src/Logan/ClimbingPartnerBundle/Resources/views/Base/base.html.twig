@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>
+        {% block title %}Climbing Partner - Find your climbing partner today!{% endblock %}
+    </title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ asset('bundles/loganclimbingpartner/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('bundles/loganclimbingpartner/css/custom.css') }}" rel="stylesheet">
+
+</head>
+
+<body>
+
+<nav class="navbar navbar-inverse">
+    <div class="container">
+        {% block navigation %}
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                        aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Climbing Partner</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li{% if app.request.attributes.get('_route') == 'default' %} class="active" {%  endif %}><a href="{{ path('default') }}">Home</a></li>
+                    <li{% if app.request.attributes.get('_route') == 'search' %} class="active" {%  endif %}><a href="{{ path('search') }}">Search</a></li>
+                    <li{% if app.request.attributes.get('_route') == 'messages' %} class="active" {%  endif %}><a href="{{ path('messages') }}">Messages</a></li>
+                    <li{% if app.request.attributes.get('_route') == 'profile' or app.request.attributes.get('_route') == 'editProfile' %} class="active" {%  endif %}><a href="{{ path('profile') }}">Profil</a></li>
+                </ul>
+                <div class="navbar-form navbar-right">
+                    <a href="{{ path('logout') }}">
+                        <button class="btn btn-danger">Logout</button>
+                    </a>
+                </div>
+            </div>
+        {% endblock %}
+        <!--/.navbar-collapse -->
+    </div>
+</nav>
+{% block content %}
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <img src="{{ asset('bundles/loganclimbingpartner/img/banner.jpg') }}" style="width: 100%; height: auto;"/>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Example row of columns -->
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Welcome to Climbing Partner</h2>
+
+                <p>Please login at the top of the page. </p>
+
+                <p>If you don't have an account yet, register below:</p>
+
+                <p><a href="registration.html"><button type="submit" class="btn btn-success">Register now</button></a></p>
+            </div>
+        </div>
+
+        <hr>
+
+        <footer>
+            <p>&copy; Mike Logan 2014</p>
+        </footer>
+    </div>
+{% endblock %}
+<!-- /container -->
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="{{ asset('bundles/loganclimbingpartner/js/bootstrap.min.js') }}"></script>
+</body>
+</html>

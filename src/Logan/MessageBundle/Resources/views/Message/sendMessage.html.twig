@@ -1,0 +1,20 @@
+{% extends 'LoganClimbingPartnerBundle:Base:base.html.twig' %}
+
+{% block content %}
+    <div class="container">
+    <!-- Example row of columns -->
+        <div class="row">
+            <div class="col-md-4">
+                <h4>To: {{ username }}</h4>
+                {{ form_start(form) }}
+                    {{ form_errors(form) }}
+                    {{ form_row(form.subject) }}
+                    {{ form_row(form.text) }}
+                    <br />
+                    {{ form_widget(form.Send) }} {{  form_widget(form.Cancel) }}
+                {{ form_end(form) }}
+            </div>
+         </div>
+    </div>
+
+{% endblock %}

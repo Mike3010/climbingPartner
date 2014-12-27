@@ -1,0 +1,9 @@
+parameters:
+#    logan_message.example.class: Logan\MessageBundle\Example
+
+services:
+   message:
+      class: Logan\MessageBundle\Entity\Message
+
+   messageType:
+      class:  Logan\MessageBundle\Form\MessageType

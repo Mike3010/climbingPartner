@@ -1,0 +1,16 @@
+parameters:
+#    logan_climbing_partner.example.class: Logan\ClimbingPartnerBundle\Example
+
+services:
+   userdata:
+      class: Logan\ClimbingPartnerBundle\Entity\Userdata
+
+   userdataType:
+      class: Logan\ClimbingPartnerBundle\Form\UserdataType
+
+
+   searchdata:
+      class: Logan\ClimbingPartnerBundle\Entity\Searchdata
+
+   searchdataType:
+      class: Logan\ClimbingPartnerBundle\Form\SearchdataType
