@@ -46,8 +46,7 @@ class MessageController extends Controller
 		}
 		$username = $userTo->getUsername();
 
-		//$message = $this->get('message');
-		$message = new Message();
+		$message = $this->get('message');
 		$messageType = $this->get('messageType');
 
 		$form = $this->createForm($messageType, $message);
