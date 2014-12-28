@@ -25,9 +25,10 @@
         <div class="row">
             <div class="col-md-12">
 
+                <hr />
                 {% for result in results %}
                     <div>
-                        <h3><a href="{{ path('show', {'userId': result.id}) }}">{{ result.username }}</a></h3>
+                        <h4><a href="{{ path('show', {'userId': result.id}) }}">{{ result.username }}</a></h4>
                         <p>
                             {{ result.userdata.ort }}, {{ result.userdata.plz }}, {{ result.userdata.geschlecht }}
                         </p>

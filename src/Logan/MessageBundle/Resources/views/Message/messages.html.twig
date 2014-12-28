@@ -13,11 +13,13 @@
                         <a href="{{ path('messages') }}">Messages</a>
                     {%  endif %}
                 </h6>
+                <br />
+                <hr />
                 {% for message in messages %}
 
-                    <h3><a href="{{ path('showMessage', {'messageId': message.id} ) }}">{{ message.subject }}</a></h3>
-                    <h4>{{ message.userFrom.username }} ({{ message.formattedDateSent }})</h4>
-
+                    <h4><a href="{{ path('showMessage', {'messageId': message.id} ) }}">{{ message.subject }}</a></h4>
+                    <h5>{{ message.userFrom.username }} ({{ message.formattedDateSent }})</h5>
+                    <hr />
                 {% endfor %}
             </div>
          </div>

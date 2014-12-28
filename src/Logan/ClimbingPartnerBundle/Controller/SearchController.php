@@ -41,7 +41,6 @@ class SearchController extends Controller
 				}
 			}
 
-			$query->addGroupBy('d.ort');
 			$results = $query->getQuery()->getResult();
 		}
 

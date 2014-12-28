@@ -5,18 +5,20 @@
     <!-- Example row of columns -->
         <div class="row">
             <div class="col-md-12">
-                <h3>{{ message.subject }}</h3>
-                <h4>From: {{ message.userFrom.username }}</h4>
-                <h4>Time: {{ message.formattedDateSent }}</h4>
+                <h4>Subject: {{ message.subject }}</h4>
+                <h5>From: {{ message.userFrom.username }}</h5>
+                <h5>Time: {{ message.formattedDateSent }}</h5>
+                <hr />
                 <p>{{ message.formattedText | raw }}</p>
-                {% if message.userFrom != app.user %}
-                    <p><b><a href="{{ path('sendMessage', {'userId': message.userFrom.id}) }}">antworten</a></b></p>
-                {% endif %}
-                <p>
+                <hr />
+                <p><b>
+                    {% if message.userFrom != app.user %}
+                        <a href="{{ path('sendMessage', {'userId': message.userFrom.id}) }}">antworten</a> |
+                    {% endif %}
                     <a href="#" class="backLink">zurück</a>
-                </p>
+                </b></p>
             </div>
-         </div>
+        </div>
     </div>
 
 {% endblock %}
