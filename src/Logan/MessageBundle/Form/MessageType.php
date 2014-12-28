@@ -18,7 +18,7 @@ class MessageType extends AbstractType
             ->add('subject', 'text', array('attr' => array('class' => 'form-control')))
             ->add('text', 'textarea', array('attr' => array('class' => 'form-control', 'rows' => '7')))
 			->add('Send', 'submit', array('attr' => array('class' => 'btn btn-success')))
-			->add('Cancel', 'submit', array('attr' => array('class' => 'btn btn-danger')));
+			->add('Cancel', 'submit', array('attr' => array('class' => 'btn btn-danger backLink')));
         ;
     }
     

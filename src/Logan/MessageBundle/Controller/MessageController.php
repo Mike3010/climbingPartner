@@ -16,7 +16,7 @@ class MessageController extends Controller
 		$query = $repository->createQueryBuilder('m');
 		$query->andWhere('m.userToId = :id');
 		$query->setParameter('id', $userId);
-		$query->addOrderBy('m.dateSent');
+		$query->addOrderBy('m.dateSent', 'desc');
 		$messages = $query->getQuery()->getResult();
 
 		return $this->render('LoganMessageBundle:Message:messages.html.twig', array('messages' => $messages));
@@ -24,12 +24,13 @@ class MessageController extends Controller
 
 	public function messagesSentAction()
 	{
+		$userId = $this->getUser()->getId();
 
 		$repository = $this->getDoctrine()->getRepository('LoganMessageBundle:Message');
 		$query = $repository->createQueryBuilder('m');
 		$query->andWhere('m.userFromId = :id');
-		$query->setParameter('id', $this->getUser()->getId());
-		$query->addOrderBy('m.dateSent');
+		$query->setParameter('id', $userId);
+		$query->addOrderBy('m.dateSent', 'desc');
 		$messages = $query->getQuery()->getResult();
 
 		return $this->render('LoganMessageBundle:Message:messages.html.twig', array('messages' => $messages));
@@ -37,7 +38,7 @@ class MessageController extends Controller
 
 	public function sendMessageAction(Request $request, $userId) {
 
-		$userTo= $this->getDoctrine()->getRepository('LoganUserBundle:User')->find($userId);
+		$userTo = $this->getDoctrine()->getRepository('LoganUserBundle:User')->find($userId);
 		$user = $this->getUser();
 
 		if(is_null($userTo)) {
@@ -53,10 +54,6 @@ class MessageController extends Controller
 
 		$form->handleRequest($request);
 		if($form->isValid()) {
-
-			if($form->get('Cancel')->isClicked()) {
-				return $this->redirect($this->generateUrl('messages'));
-			}
 
 			$message->setDateSent(new \DateTime());
 			$message->setUserTo($userTo);
@@ -85,17 +82,17 @@ class MessageController extends Controller
 		$message = $query->getQuery()->getOneOrNullResult();
 
 		//message vorhanden und recht vorhanden message zu sehen!?
-		$userId = $this->getUser()->getId();
+		$user = $this->getUser();
 		if(is_null($message)
-			or ($message->getUserFromId() != $userId
-				and $message->getUserToId() != $userId)) {
+			or ($message->getUserFrom() != $user
+				and $message->getUserTo() != $user)) {
 
 			//wenn nicht
 			return $this->render('LoganMessageBundle:Message:error.html.twig');
 		}
 
 		//gelesen setzen wenn noch nicht vorhanden und wenn es sich um empfangene nachricht handelt
-		if(is_null($message->getDateReceived()) and $message->getUserToId()  == $userId) {
+		if(is_null($message->getDateReceived()) and $message->getUserTo()  == $user) {
 
 			$message->setDateReceived(new \DateTime());
 

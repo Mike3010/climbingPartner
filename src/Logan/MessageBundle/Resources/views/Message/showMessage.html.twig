@@ -12,6 +12,9 @@
                 {% if message.userFrom != app.user %}
                     <p><b><a href="{{ path('sendMessage', {'userId': message.userFrom.id}) }}">antworten</a></b></p>
                 {% endif %}
+                <p>
+                    <a href="#" class="backLink">zurück</a>
+                </p>
             </div>
          </div>
     </div>
