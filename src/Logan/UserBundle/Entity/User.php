@@ -54,12 +54,14 @@ class User implements UserInterface, \Serializable
 
 	/**
 	 * @ORM\OneToMany(targetEntity="Logan\MessageBundle\Entity\Message", mappedBy="userTo")
+	 * @ORM\OrderBy({"dateSent" = "DESC"})
 	 */
 	private $messagesReceived;
 
 
 	/**
 	* @ORM\OneToMany(targetEntity="Logan\MessageBundle\Entity\Message", mappedBy="userFrom")
+	* @ORM\OrderBy({"dateSent" = "DESC"})
 	*/
 	private $messagesSent;
 
