@@ -53,9 +53,8 @@ class ProfileController extends Controller
 
 	public function showProfileAction(Request $request, $userId) {
 
-		$user = $this->getDoctrine()
-			->getRepository('LoganUserBundle:User')
-			->find($userId);
+		$repository = $this->get('userRepository');
+		$user = $repository->find($userId);
 
 		if(is_null($user)) {
 

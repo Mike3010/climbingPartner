@@ -7,3 +7,10 @@ services:
 
    messageType:
       class:  Logan\MessageBundle\Form\MessageType
+
+   messageRepository:
+       class: Symfony\Bundle\FrameworkBundle\Controller
+       factory_service: doctrine
+       factory_method: getRepository
+       arguments:
+           - 'LoganMessageBundle:Message'

@@ -50,8 +50,7 @@ class RegistrationController extends Controller
 
 	private function usernameAvailable($username) {
 
-		$repository = $this->getDoctrine()
-			->getRepository('LoganUserBundle:User');
+		$repository = $this->get('userRepository');
 
 		$query = $repository->createQueryBuilder('u')
 			->where('u.username = :username')

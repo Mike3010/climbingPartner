@@ -10,41 +10,22 @@ class MessageController extends Controller
 {
 	public function messagesAction()
 	{
-//		$userId = $this->getUser()->getId();
-//
-//		$repository = $this->getDoctrine()->getRepository('LoganMessageBundle:Message');
-//		$query = $repository->createQueryBuilder('m');
-//		$query->andWhere('m.userToId = :id');
-//		$query->setParameter('id', $userId);
-//		$query->addOrderBy('m.dateSent', 'desc');
-//		$messages = $query->getQuery()->getResult();
-
-		$messages = $this->getUser()->getMessagesSent();
+		$messages = $this->getUser()->getMessagesReceived();
 
 		return $this->render('LoganMessageBundle:Message:messages.html.twig', array('messages' => $messages));
 	}
 
 	public function messagesSentAction()
 	{
-//		$userId = $this->getUser()->getId();
-//
-//		$repository = $this->getDoctrine()->getRepository('LoganMessageBundle:Message');
-//		$query = $repository->createQueryBuilder('m');
-//		$query->andWhere('m.userFromId = :id');
-//		$query->setParameter('id', $userId);
-//		$query->addOrderBy('m.dateSent', 'desc');
-//		$messages = $query->getQuery()->getResult();
-
-		$messages = $this->getUser()->getMessagesReceived();
+		$messages = $this->getUser()->getMessagesSent();
 
 		return $this->render('LoganMessageBundle:Message:messages.html.twig', array('messages' => $messages));
 	}
 
 	public function sendMessageAction(Request $request, $userId) {
 
-		$userTo = $this->getDoctrine()
-			->getRepository('LoganUserBundle:User')
-			->find($userId);
+		$repository = $this->get('userRepository');
+		$userTo = $repository->find($userId);
 		$user = $this->getUser();
 
 		if(is_null($userTo)) {
@@ -81,9 +62,8 @@ class MessageController extends Controller
 
     public function showMessageAction($messageId)
     {
-		$message = $this->getDoctrine()
-			->getRepository('LoganMessageBundle:Message')
-			->find($messageId);
+		$repository = $this->get('messageRepository');
+		$message = $repository->find($messageId);
 
 		//message vorhanden und recht vorhanden message zu sehen!?
 		$user = $this->getUser();

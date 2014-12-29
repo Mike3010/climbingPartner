@@ -20,7 +20,7 @@ class SearchController extends Controller
 		if ($form->isValid()) {
 
 			//user mit suchkriterien suchen
-			$repository = $this->getDoctrine()->getRepository('LoganUserBundle:User');
+			$repository = $this->get('userRepository');
 			$query = $repository->createQueryBuilder('u')->innerJoin('u.userdata', 'd');
 
 			$searchFields = array('ort' => 'getOrt',

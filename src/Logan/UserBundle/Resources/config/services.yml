@@ -7,3 +7,10 @@ services:
 
    userType:
       class: Logan\UserBundle\Form\Type\UserType
+
+   userRepository:
+       class: Symfony\Bundle\FrameworkBundle\Controller
+       factory_service: doctrine
+       factory_method: getRepository
+       arguments:
+           - 'LoganUserBundle:User'
