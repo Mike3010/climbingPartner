@@ -42,7 +42,9 @@ class MessageController extends Controller
 
 	public function sendMessageAction(Request $request, $userId) {
 
-		$userTo = $this->getDoctrine()->getRepository('LoganUserBundle:User')->find($userId);
+		$userTo = $this->getDoctrine()
+			->getRepository('LoganUserBundle:User')
+			->find($userId);
 		$user = $this->getUser();
 
 		if(is_null($userTo)) {
@@ -79,17 +81,14 @@ class MessageController extends Controller
 
     public function showMessageAction($messageId)
     {
-		$repository = $this->getDoctrine()->getRepository('LoganMessageBundle:Message');
-		$query = $repository->createQueryBuilder('m');
-		$query->andWhere('m.id = :id');
-		$query->setParameter('id', $messageId);
-		$message = $query->getQuery()->getOneOrNullResult();
+		$message = $this->getDoctrine()
+			->getRepository('LoganMessageBundle:Message')
+			->find($messageId);
 
 		//message vorhanden und recht vorhanden message zu sehen!?
 		$user = $this->getUser();
-		if(is_null($message)
-			or ($message->getUserFrom() != $user
-				and $message->getUserTo() != $user)) {
+		if(is_null($message)or
+			($message->getUserFrom() != $user and $message->getUserTo() != $user)) {
 
 			//wenn nicht
 			return $this->render('LoganMessageBundle:Message:error.html.twig');
