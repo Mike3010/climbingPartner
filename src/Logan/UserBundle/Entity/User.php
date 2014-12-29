@@ -53,14 +53,14 @@ class User implements UserInterface, \Serializable
 	private $userdata;
 
 	/**
-	 * @ORM\OneToMany(targetEntity="Logan\MessageBundle\Entity\Message", mappedBy="userTo")
+	 * @ORM\OneToMany(targetEntity="Logan\MessageBundle\Model\MessageInterface", mappedBy="userTo")
 	 * @ORM\OrderBy({"dateSent" = "DESC"})
 	 */
 	private $messagesReceived;
 
 
 	/**
-	* @ORM\OneToMany(targetEntity="Logan\MessageBundle\Entity\Message", mappedBy="userFrom")
+	* @ORM\OneToMany(targetEntity="Logan\MessageBundle\Model\MessageInterface", mappedBy="userFrom")
 	* @ORM\OrderBy({"dateSent" = "DESC"})
 	*/
 	private $messagesSent;
@@ -293,7 +293,7 @@ class User implements UserInterface, \Serializable
      * @param \Logan\MessageBundle\Entity\Message $messagesReceived
      * @return User
      */
-    public function addMessagesReceived(\Logan\MessageBundle\Entity\Message $messagesReceived)
+    public function addMessagesReceived(\Logan\MessageBundle\Model\MessageInterface $messagesReceived)
     {
         $this->messagesReceived[] = $messagesReceived;
 
@@ -305,7 +305,7 @@ class User implements UserInterface, \Serializable
      *
      * @param \Logan\MessageBundle\Entity\Message $messagesReceived
      */
-    public function removeMessagesReceived(\Logan\MessageBundle\Entity\Message $messagesReceived)
+    public function removeMessagesReceived(\Logan\MessageBundle\Model\MessageInterface $messagesReceived)
     {
         $this->messagesReceived->removeElement($messagesReceived);
     }
@@ -326,7 +326,7 @@ class User implements UserInterface, \Serializable
      * @param \Logan\MessageBundle\Entity\Message $messagesSent
      * @return User
      */
-    public function addMessagesSent(\Logan\MessageBundle\Entity\Message $messagesSent)
+    public function addMessagesSent(\Logan\MessageBundle\Model\MessageInterface $messagesSent)
     {
         $this->messagesSent[] = $messagesSent;
 
@@ -338,7 +338,7 @@ class User implements UserInterface, \Serializable
      *
      * @param \Logan\MessageBundle\Entity\Message $messagesSent
      */
-    public function removeMessagesSent(\Logan\MessageBundle\Entity\Message $messagesSent)
+    public function removeMessagesSent(\Logan\MessageBundle\Model\MessageInterface $messagesSent)
     {
         $this->messagesSent->removeElement($messagesSent);
     }

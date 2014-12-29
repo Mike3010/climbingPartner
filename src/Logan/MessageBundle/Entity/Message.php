@@ -3,6 +3,7 @@
 namespace Logan\MessageBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Logan\MessageBundle\Model\MessageInterface;
 
 /**
  * Message
@@ -10,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table()
  * @ORM\Entity
  */
-class Message
+class Message implements MessageInterface
 {
 	/**
 	 * @var integer

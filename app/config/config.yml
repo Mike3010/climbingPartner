@@ -59,6 +59,8 @@ doctrine:
     orm:
         auto_generate_proxy_classes: "%kernel.debug%"
         auto_mapping: true
+        resolve_target_entities:
+              Logan\MessageBundle\Model\MessageInterface: Logan\MessageBundle\Entity\Message
 
 # Swiftmailer Configuration
 swiftmailer:
