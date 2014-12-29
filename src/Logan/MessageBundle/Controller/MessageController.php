@@ -10,28 +10,32 @@ class MessageController extends Controller
 {
 	public function messagesAction()
 	{
-		$userId = $this->getUser()->getId();
+//		$userId = $this->getUser()->getId();
+//
+//		$repository = $this->getDoctrine()->getRepository('LoganMessageBundle:Message');
+//		$query = $repository->createQueryBuilder('m');
+//		$query->andWhere('m.userToId = :id');
+//		$query->setParameter('id', $userId);
+//		$query->addOrderBy('m.dateSent', 'desc');
+//		$messages = $query->getQuery()->getResult();
 
-		$repository = $this->getDoctrine()->getRepository('LoganMessageBundle:Message');
-		$query = $repository->createQueryBuilder('m');
-		$query->andWhere('m.userToId = :id');
-		$query->setParameter('id', $userId);
-		$query->addOrderBy('m.dateSent', 'desc');
-		$messages = $query->getQuery()->getResult();
+		$messages = $this->getUser()->getMessagesSent();
 
 		return $this->render('LoganMessageBundle:Message:messages.html.twig', array('messages' => $messages));
 	}
 
 	public function messagesSentAction()
 	{
-		$userId = $this->getUser()->getId();
+//		$userId = $this->getUser()->getId();
+//
+//		$repository = $this->getDoctrine()->getRepository('LoganMessageBundle:Message');
+//		$query = $repository->createQueryBuilder('m');
+//		$query->andWhere('m.userFromId = :id');
+//		$query->setParameter('id', $userId);
+//		$query->addOrderBy('m.dateSent', 'desc');
+//		$messages = $query->getQuery()->getResult();
 
-		$repository = $this->getDoctrine()->getRepository('LoganMessageBundle:Message');
-		$query = $repository->createQueryBuilder('m');
-		$query->andWhere('m.userFromId = :id');
-		$query->setParameter('id', $userId);
-		$query->addOrderBy('m.dateSent', 'desc');
-		$messages = $query->getQuery()->getResult();
+		$messages = $this->getUser()->getMessagesReceived();
 
 		return $this->render('LoganMessageBundle:Message:messages.html.twig', array('messages' => $messages));
 	}
